@@ -1,0 +1,34 @@
+{% extends "core/base.html" %}
+{% block title %}Comentários{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Comentários</h2>
+
+<!-- Formulário estilizado -->
+<form method="post" enctype="multipart/form-data" class="mb-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-warning">Adicionar Comentário</button>
+</form>
+
+<!-- Condicional -->
+{% if comentarios %}
+    <ul class="list-group">
+        {% for comentario in comentarios %}
+            <li class="list-group-item">
+                Tarefa: {{ comentario.tarefa.titulo }}<br>
+                Autores: {{ comentario.autores.all|join:", " }}<br>
+                Criado em: {{ comentario.criado_em|date:"d/m/Y H:i" }}<br>
+                Conteúdo: {{ comentario.conteudo }}<br>
+                Importância: {{ comentario.importancia|upper }}<br>
+                {% if comentario.anexo %}
+                    <a href="{{ comentario.anexo.url }}" download>📎 Anexo</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="text-muted">Nenhum comentário ainda.</p>
+{% endif %}
+
+{% endblock %}
