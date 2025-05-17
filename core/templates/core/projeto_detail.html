@@ -1,0 +1,17 @@
+{% extends "core/base.html" %}
+
+{% block title %}Detalhes do Projeto{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Detalhes do Projeto</h2>
+
+<ul class="list-group">
+    <li class="list-group-item"><strong>Título:</strong> {{ projeto.titulo }}</li>
+    <li class="list-group-item"><strong>Descrição:</strong> {{ projeto.descricao }}</li>
+    <li class="list-group-item"><strong>Data de Início:</strong> {{ projeto.data_inicio|date:"d/m/Y" }}</li>
+    <li class="list-group-item"><strong>Orçamento:</strong> R$ {{ projeto.orcamento }}</li>
+    <li class="list-group-item"><strong>Categoria:</strong> {{ projeto.categoria.nome }}</li>
+</ul>
+
+<a href="{% url 'projeto_list' %}" class="btn btn-secondary mt-3">Voltar</a>
+{% endblock %}

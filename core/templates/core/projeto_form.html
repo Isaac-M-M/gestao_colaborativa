@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+
+{% block title %}Formulário de Projeto{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Formulário de Projeto</h2>
+
+<!-- Formulário que serve tanto para criação quanto edição -->
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Salvar</button>
+</form>
+
+<a href="{% url 'projeto_list' %}" class="btn btn-secondary mt-3">Voltar</a>
+{% endblock %}
