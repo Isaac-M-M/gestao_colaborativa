@@ -15,7 +15,7 @@
 
 <form method="post">
     {% csrf_token %}
-    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow">
+    <button type="submit" class="bg-black text-white px-3 py-1 rounded hover:bg-gray-800 transition">
         Confirmar Exclusão
     </button>
     <a href="{% url 'projeto_list' %}" class="ml-4 text-green-300 hover:underline">Cancelar</a>
