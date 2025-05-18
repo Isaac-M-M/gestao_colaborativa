@@ -4,14 +4,12 @@
 {% block content %}
 <h2 class="mb-4">Comentários</h2>
 
-<!-- Formulário estilizado -->
 <form method="post" enctype="multipart/form-data" class="mb-4">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-warning">Adicionar Comentário</button>
 </form>
 
-<!-- Condicional -->
 {% if comentarios %}
     <ul class="list-group">
         {% for comentario in comentarios %}
