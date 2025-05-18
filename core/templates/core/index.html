@@ -1,25 +1,35 @@
 {% extends "core/base.html" %}
+
 {% block title %}Início{% endblock %}
 
 {% block content %}
-<div class="text-white p-6">
-    <h1 class="text-3xl font-bold text-black mb-6">Bem-vindo à Gestão Colaborativa</h1>
+<div class="container mt-5">
+    <h1 class="mb-4 text-success">Bem-vindo à Gestão Colaborativa</h1>
     
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <a href="{% url 'projeto_list' %}" class="bg-gray-800 hover:bg-gray-700 text-center p-6 rounded-lg shadow-md transition">
-            <h2 class="text-xl font-semibold text-green-400 mb-2">Projetos</h2>
-            <p class="text-gray-300">Gerencie seus projetos de forma simples e eficaz.</p>
-        </a>
-
-        <a href="{% url 'tarefa_list' %}" class="bg-gray-800 hover:bg-gray-700 text-center p-6 rounded-lg shadow-md transition">
-            <h2 class="text-xl font-semibold text-green-400 mb-2">Tarefas</h2>
-            <p class="text-gray-300">Acompanhe as tarefas em andamento.</p>
-        </a>
-
-        <a href="{% url 'comentario_list' %}" class="bg-gray-800 hover:bg-gray-700 text-center p-6 rounded-lg shadow-md transition">
-            <h2 class="text-xl font-semibold text-green-400 mb-2">Comentários</h2>
-            <p class="text-gray-300">Veja e adicione comentários dos colaboradores.</p>
-        </a>
+    <div class="list-group">
+        <h3>Views Padrão</h3>
+        <a href="{% url 'projeto_list' %}" class="list-group-item list-group-item-action">Listar Projetos</a>
+        <a href="{% url 'tarefa_list' %}" class="list-group-item list-group-item-action">Listar Tarefas</a>
+        <a href="{% url 'comentario_list' %}" class="list-group-item list-group-item-action">Listar Comentários</a>
     </div>
+
+    <div class="list-group mt-4">
+        <h3>CBV - Class Based Views</h3>
+        <a href="{% url 'projeto_cbv_listar' %}" class="list-group-item list-group-item-action">Listar Projetos (CBV)</a>
+        <a href="{% url 'projeto_cbv_criar' %}" class="list-group-item list-group-item-action">Criar Projeto (CBV)</a>
+        <a href="/projetos/cbv/1/" class="list-group-item list-group-item-action">Detalhar Projeto ID 1 (CBV)</a>
+        <a href="/projetos/cbv/editar/1/" class="list-group-item list-group-item-action">Editar Projeto ID 1 (CBV)</a>
+        <a href="/projetos/cbv/deletar/1/" class="list-group-item list-group-item-action">Deletar Projeto ID 1 (CBV)</a>
+    </div>
+
+    <div class="list-group mt-4">
+        <h3>FBV - Function Based Views</h3>
+        <a href="{% url 'projeto_fbv_listar' %}" class="list-group-item list-group-item-action">Listar Projetos (FBV)</a>
+        <a href="{% url 'projeto_fbv_criar' %}" class="list-group-item list-group-item-action">Criar Projeto (FBV)</a>
+        <a href="/projetos/fbv/1/" class="list-group-item list-group-item-action">Detalhar Projeto ID 1 (FBV)</a>
+        <a href="/projetos/fbv/editar/1/" class="list-group-item list-group-item-action">Editar Projeto ID 1 (FBV)</a>
+        <a href="/projetos/fbv/deletar/1/" class="list-group-item list-group-item-action">Deletar Projeto ID 1 (FBV)</a>
+    </div>
+    
 </div>
 {% endblock %}

@@ -1,3 +1,5 @@
+from rest_framework import routers
+from .views import ProjetoViewSet, TarefaViewSet, ComentarioViewSet
 from django.urls import path
 from .views import (
     index_view,
@@ -31,4 +33,6 @@ urlpatterns = [
     path('projetos/fbv/editar/<int:pk>/', projeto_update, name='projeto_fbv_editar'),
     path('projetos/fbv/<int:pk>/', projeto_detail, name='projeto_fbv_detalhar'),
     path('projetos/fbv/deletar/<int:pk>/', projeto_delete, name='projeto_fbv_deletar'),
+
+
 ]

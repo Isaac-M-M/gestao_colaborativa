@@ -1,16 +1,21 @@
-{% extends "core/base.html" %}
+{% extends 'core/base.html' %}
+{# Template reutilizado tanto para criar quanto para editar projetos #}
 
 {% block title %}Formulário de Projeto{% endblock %}
+{# Título exibido na aba ou página #}
 
 {% block content %}
-<h2 class="mb-4">Formulário de Projeto</h2>
+<h2 class="text-2xl font-bold mb-4 text-green-400">Formulário de Projeto</h2>
 
-<!-- Formulário que serve tanto para criação quanto edição -->
-<form method="post">
+<form method="post" class="space-y-4">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-success">Salvar</button>
+    {# Renderiza o formulário estilizado automaticamente #}
+    
+    <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded shadow">
+        Salvar
+    </button>
 </form>
 
-<a href="{% url 'projeto_list' %}" class="btn btn-secondary mt-3">Voltar</a>
+<a href="{% url 'projeto_list' %}" class="mt-4 inline-block text-green-300 hover:underline">← Cancelar</a>
 {% endblock %}

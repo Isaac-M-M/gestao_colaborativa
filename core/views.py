@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import CreateView, UpdateView, DetailView, ListView, DeleteView
 from django.urls import reverse_lazy
-
+from rest_framework import viewsets
+from .serializers import ProjetoSerializer, TarefaSerializer, ComentarioSerializer
 from .models import Projeto, Tarefa, Comentario
 from .forms import ProjetoForm, TarefaForm, ComentarioForm
 
@@ -119,3 +120,15 @@ def projeto_delete(request, pk):
         projeto.delete()
         return redirect('projeto_list')
     return render(request, 'core/projeto_confirm_delete.html', {'projeto': projeto})
+
+class ProjetoViewSet(viewsets.ModelViewSet):
+    queryset = Projeto.objects.all()
+    serializer_class = ProjetoSerializer
+
+class TarefaViewSet(viewsets.ModelViewSet):
+    queryset = Tarefa.objects.all()
+    serializer_class = TarefaSerializer
+
+class ComentarioViewSet(viewsets.ModelViewSet):
+    queryset = Comentario.objects.all()
+    serializer_class = ComentarioSerializer
