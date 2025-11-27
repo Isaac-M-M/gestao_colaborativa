@@ -103,6 +103,4 @@ gestao_colaborativa/
 └── requirements.txt
 👨‍💻 Autor
 Desenvolvido por Isaac Mesquita Moreira - 38211521
-Yuri Henrique de Lara Cardoso Valadares - 35674695
-Diego Santana dos Santos - 35989262
 Repositório: github.com/Isaac-M-M
